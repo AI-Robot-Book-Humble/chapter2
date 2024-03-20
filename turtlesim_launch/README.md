@@ -6,7 +6,7 @@
 - 端末で次のコマンドを実行してください．  
 ```
 cd ~/airobot_ws/src/chapter2/turtlesim_launch
-sudo cp ./mysim.launch.py /opt/ros/foxy/share/turtlesim/launch
+sudo cp ./mysim.launch.py /opt/ros/humble/share/turtlesim/launch
 ```
 
 ## 実行  
