@@ -15,7 +15,7 @@ class HappySubscriber(Node):
         self.get_logger().info(f'サブスクライブ: {msg.data}')
 
 
-def main(args=None):  # main¢p
+def main(args=None):  # main関数
     rclpy.init()
     node = HappySubscriber()
     try:
