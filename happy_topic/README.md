@@ -5,9 +5,7 @@
 - happy_topic/happy_subscriber_node.py (プログラムリスト2.8)
 
 ## バグ情報
-- Dockerコンテナのhappy_topicパッケージにバグがありました．chapter2/happy_topic/happy_topic/happy_subscriber.pyの以下の行を次のように変更してください．なお，githubのコードは修正済みです．
-  - 7行目：　誤　class HappyPublisher(Node):　正　class HappySubscriber(Node):　　
-  - 20行目： 誤　node = HappyPublisher()      正　node = HappySubscriber():　
+- 今のところありません．
   
 ## インストール
 Chapter2のパッケージは全部まとめてインストール・ビルドをします．
@@ -30,7 +28,8 @@ ros2 run happy_topic happy_publisher_node
 
 
 ## 履歴
-- 2022-11-08: happy_subscriber_node.pyのノード名がこの本と違っていたので，それに伴う7行と20行の変更．
+- 2024-03-27: Humbleでの動作確認
+- 2022-11-08: happy_subscriber_node.pyのノード名が初版と違っていたので，それに伴う7行と20行の変更．
 - 2022-08-29: 初期版
 
 
