@@ -31,4 +31,4 @@ def main(args=None):  # main関数
         print('Ctrl+Cが押されました．')
     finally:
         node.destroy_node()
-        rclpy.shutdown()
+        rclpy.try_shutdown()
