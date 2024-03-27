@@ -20,5 +20,5 @@ def main():  # main 関数
         rclpy.spin(node)        # 4. ノードの処理．コールバック関数を繰り返しよび出す．
     except KeyboardInterrupt:
         print('Ctrl+Cが押されました．')
-    rclpy.shutdown()             # 5. 終了処理
+    rclpy.try_shutdown()        # 5. 終了処理
     print('プログラム終了')
