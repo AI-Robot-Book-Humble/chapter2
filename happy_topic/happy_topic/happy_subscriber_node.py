@@ -23,4 +23,4 @@ def main(args=None):  # main¢p
     except KeyboardInterrupt:
         print('Ctrl+Cが押されました．')
     finally:
-        rclpy.shutdown()
+        rclpy.try_shutdown()
