@@ -4,7 +4,7 @@ from airobot_interfaces.srv import StringCommand
 
 
 class BringmeClient(Node):
-    def __init__(self):
+    def __init__(self):  # コンストラクタ
         super().__init__('bringme_client_node')
         self.client = self.create_client(StringCommand, 'command') # クライアントの生成
         # サービスが利用できるまで待機
@@ -12,7 +12,7 @@ class BringmeClient(Node):
             self.get_logger().info('サービスは利用できません．待機中...')        
         self.request = StringCommand.Request()  # リクエストのインスタンス生成
 
-    def send_request(self, order):
+    def send_request(self, order):  # リクエストの送信
         self.request.command = order  # リクエストに値の代入   
         self.future = self.client.call_async(self.request) # サービスのリクエスト
 
