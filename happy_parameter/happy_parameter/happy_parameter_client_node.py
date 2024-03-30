@@ -13,11 +13,11 @@ class ParameterClient(Node):
         while not self.client.wait_for_service(timeout_sec=1.0):
             self.get_logger().info('service not available, waiting again...')
         # GetParametersリクエストオブジェクトを作成します。
-        self.req = GetParameters.Request()
+        self.request = GetParameters.Request()
 
     # パラメータの値を取得するメソッド
     def get_parameter(self, parameter_name):
-        self.req.names = [parameter_name]  # 取得したいパラメータ名をリクエストに設定
+        self.request.names = [parameter_name]  # 取得したいパラメータ名をリクエストに設定
         future = self.client.call_async(self.req)  # 非同期でサービスを呼び出します。
         rclpy.spin_until_future_complete(self, future)  # レスポンスが返ってくるまで待機します。
         if future.result() is not None:
