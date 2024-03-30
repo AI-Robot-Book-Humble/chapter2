@@ -1,8 +1,5 @@
-# goal
-int32 action_no
+int32 action_no       # ゴール
 ---
-# result
-string result
+string result         # リザルト
 ---
-# feedback
-int32 remaining_time
+int32 remaining_time  # フィードバック
