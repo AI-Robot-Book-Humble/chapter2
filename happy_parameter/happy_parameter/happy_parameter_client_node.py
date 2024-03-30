@@ -5,10 +5,9 @@ from rcl_interfaces.srv import GetParameters
 # ParameterClientクラスを定義します。Nodeクラスを継承しています。
 class ParameterClient(Node):
     def __init__(self):
-        # ノード名を'parameter_client'に設定します。
         super().__init__('happy_parameter_client')
         # パラメータサーバーのサービスに接続するクライアントを作成します。
-        self.client = self.create_client(GetParameters, '/parameter_server/get_parameters')
+        self.client = self.create_client(GetParameters, '/happy_parameter_server/get_parameters'.format_map(locals()))
         # サービスが利用可能になるまで待機します。
         while not self.client.wait_for_service(timeout_sec=1.0):
             self.get_logger().info('service not available, waiting again...')
@@ -29,7 +28,7 @@ class ParameterClient(Node):
 def main(args=None):
     rclpy.init(args=args)  # ROS 2のPythonクライアントライブラリを初期化
     node = ParameterClient()  # ParameterClientクラスのインスタンスを作成
-    parameter_value = node.get_parameter('happy_parameter')  # パラメータの値を取得
+    parameter_value = node.get_parameter('happy_parameter') # パラメータの値を取得
     node.get_logger().info(f'Value of the parameter: {parameter_value}')  # 値をログに出力
     rclpy.shutdown()  # ROS 2のシャットダウン処理
 
