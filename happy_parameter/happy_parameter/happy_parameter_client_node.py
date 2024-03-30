@@ -6,7 +6,7 @@ from rcl_interfaces.srv import GetParameters
 class ParameterClient(Node):
     def __init__(self):
         # ノード名を'parameter_client'に設定します。
-        super().__init__('parameter_client')
+        super().__init__('happy_parameter_client')
         # パラメータサーバーのサービスに接続するクライアントを作成します。
         self.client = self.create_client(GetParameters, '/parameter_server/get_parameters')
         # サービスが利用可能になるまで待機します。
@@ -29,7 +29,7 @@ class ParameterClient(Node):
 def main(args=None):
     rclpy.init(args=args)  # ROS 2のPythonクライアントライブラリを初期化
     node = ParameterClient()  # ParameterClientクラスのインスタンスを作成
-    parameter_value = node.get_parameter('example_parameter')  # パラメータの値を取得
+    parameter_value = node.get_parameter('happy_parameter')  # パラメータの値を取得
     node.get_logger().info(f'Value of the parameter: {parameter_value}')  # 値をログに出力
     rclpy.shutdown()  # ROS 2のシャットダウン処理
 
