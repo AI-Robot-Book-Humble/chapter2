@@ -18,7 +18,7 @@ class ParameterClient(Node):
     # パラメータの値を取得するメソッド
     def get_parameter(self, parameter_name):
         self.request.names = [parameter_name]  # 取得したいパラメータ名をリクエストに設定
-        future = self.client.call_async(self.req)  # 非同期でサービスを呼び出します。
+        future = self.client.call_async(self.request)  # 非同期でサービスを呼び出します。
         rclpy.spin_until_future_complete(self, future)  # レスポンスが返ってくるまで待機します。
         if future.result() is not None:
             return future.result().values[0].string_value  # パラメータの値を返します。
