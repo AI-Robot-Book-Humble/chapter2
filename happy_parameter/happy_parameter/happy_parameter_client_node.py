@@ -1,36 +1,82 @@
 import rclpy
 from rclpy.node import Node
-from rcl_interfaces.srv import GetParameters
+from rclpy.parameter import Parameter
+from rcl_interfaces.msg import ParameterType
+from rcl_interfaces.srv import GetParameters, SetParameters
 
-# ParameterClientクラスを定義します。Nodeクラスを継承しています。
 class ParameterClient(Node):
     def __init__(self):
-        super().__init__('happy_parameter_client')
-        # パラメータサーバーのサービスに接続するクライアントを作成します。
-        self.client = self.create_client(GetParameters, '/happy_parameter_server/get_parameters'.format_map(locals()))
-        # サービスが利用可能になるまで待機します。
-        while not self.client.wait_for_service(timeout_sec=1.0):
-            self.get_logger().info('service not available, waiting again...')
-        # GetParametersリクエストオブジェクトを作成します。
-        self.request = GetParameters.Request()
+        super().__init__('happy_parameter_client_node')
+        #values = self.get_parameters_from_another_node(self, 'node_name', ['param_name'])
+        values = self.get_parameters_from_another_node('/happy_parameter_server_node', ['happy_parameter'])
+        print(f'values={values}')
+        
+    def get_parameters_from_another_node(self, node_name, parameter_names):
+        # create client
+        client = self.create_client(
+            GetParameters,
+            '{node_name}/get_parameters'.format_map(locals()))
 
-    # パラメータの値を取得するメソッド
-    def get_parameter(self, parameter_name):
-        self.request.names = [parameter_name]  # 取得したいパラメータ名をリクエストに設定
-        future = self.client.call_async(self.request)  # 非同期でサービスを呼び出します。
-        rclpy.spin_until_future_complete(self, future)  # レスポンスが返ってくるまで待機します。
-        if future.result() is not None:
-            return future.result().values[0].string_value  # パラメータの値を返します。
-        else:
-            return None  # レスポンスがない場合はNoneを返します。
+        # call as soon as ready
+        ready = client.wait_for_service(timeout_sec=5.0)
+        if not ready:
+            raise RuntimeError('Wait for service timed out')
 
-# メイン関数
+        request = GetParameters.Request()
+        request.names = parameter_names
+        future = client.call_async(request)
+        rclpy.spin_until_future_complete(self, future)
+
+        # handle response
+        response = future.result()
+        if response is None:
+            e = future.exception()
+            raise RuntimeError(
+                'Exception while calling service of node '
+                "'{args.node_name}': {e}".format_map(locals()))
+        
+        return_values = []
+
+        for pvalue in response.values:
+            if pvalue.type == ParameterType.PARAMETER_BOOL:
+                value = pvalue.bool_value
+            elif pvalue.type == ParameterType.PARAMETER_INTEGER:
+                value = pvalue.integer_value
+            elif pvalue.type == ParameterType.PARAMETER_DOUBLE:
+                value = pvalue.double_value
+            elif pvalue.type == ParameterType.PARAMETER_STRING:
+                value = pvalue.string_value
+            elif pvalue.type == ParameterType.PARAMETER_BYTE_ARRAY:
+                value = pvalue.byte_array_value
+            elif pvalue.type == ParameterType.PARAMETER_BOOL_ARRAY:
+                value = pvalue.bool_array_value
+            elif pvalue.type == ParameterType.PARAMETER_INTEGER_ARRAY:
+                value = pvalue.integer_array_value
+            elif pvalue.type == ParameterType.PARAMETER_DOUBLE_ARRAY:
+                value = pvalue.double_array_value
+            elif pvalue.type == ParameterType.PARAMETER_STRING_ARRAY:
+                value = pvalue.string_array_value
+            elif pvalue.type == ParameterType.PARAMETER_NOT_SET:
+                value = None
+            else:
+                raise RuntimeError("Unknown parameter type '{pvalue.type}'" \
+                    .format_map(locals()))
+            return_values.append(value)
+        
+        return return_values
+
+
 def main(args=None):
-    rclpy.init(args=args)  # ROS 2のPythonクライアントライブラリを初期化
-    node = ParameterClient()  # ParameterClientクラスのインスタンスを作成
-    parameter_value = node.get_parameter('happy_parameter') # パラメータの値を取得
-    node.get_logger().info(f'Value of the parameter: {parameter_value}')  # 値をログに出力
-    rclpy.shutdown()  # ROS 2のシャットダウン処理
+    rclpy.init(args=args)
+    print('main:1')
+    node = ParameterClient()
+    print('main:2')
+    #parameter_value = node.get_parameters_from_another_node()
+    # create clientget_parameter('happy_parameter')
+    print('main:3')
+    #node.get_logger().info(f'Value of the parameter: {parameter_value}')
+    print('main:4')
+    rclpy.shutdown()
 
 if __name__ == '__main__':
     main()

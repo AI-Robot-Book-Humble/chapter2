@@ -5,7 +5,7 @@ from rclpy.node import Node
 class ParameterServer(Node):
     def __init__(self):
         # ノード名を'parameter_server'に設定します。
-        super().__init__('happy_parameter_server')
+        super().__init__('happy_parameter_server_node')
         # 'example_parameter'という名前のパラメータを宣言し、初期値を'Hello World'に設定します。
         self.declare_parameter('happy_parameter', 'Hello World')
 
