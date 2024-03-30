@@ -20,7 +20,8 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'happy_parameter_server_node = happy_parameter.happy_parameter_server_node:main'
+            'happy_parameter_server_node = happy_parameter.happy_parameter_server_node:main',
+            'happy_parameter_client_node = happy_parameter.happy_parameter_client_node:main',
         ],
     },
 )
