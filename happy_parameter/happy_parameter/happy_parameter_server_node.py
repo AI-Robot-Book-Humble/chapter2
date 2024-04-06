@@ -1,13 +1,18 @@
 import rclpy
 from rclpy.node import Node
 
-# ParameterServerクラスを定義します。Nodeクラスを継承しています。
-class ParameterServer(Node):
+class ParameterServer(Node): # ParameterServerクラス
     def __init__(self):
-        # ノード名を'parameter_server'に設定します。
         super().__init__('happy_parameter_server_node')
-        # 'example_parameter'という名前のパラメータを宣言し、初期値を'Hello World'に設定します。
-        self.declare_parameter('happy_parameter', 'Hello World')
+        self.declare_parameter('happy_param_int', 7)  # パラメータの宣言
+        self.declare_parameter('happy_param_string', 'Happy World')  # パラメータの宣言
+        self.timer = self.create_timer(1, self.timer_callback)  # タイマの生成
+    
+    def timer_callback(self):
+        param_int    = self.get_parameter('happy_param_int').value  # パラメータの取得
+        param_string = self.get_parameter('happy_param_string').value  # パラメータの取得
+        self.get_logger().info(f'happy_param_int:{param_int}')  # パラメータの表示
+        self.get_logger().info(f'happy_param_string:{param_string}')  # パラメータの表示
 
 # メイン関数
 def main(args=None):
