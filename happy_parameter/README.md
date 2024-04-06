@@ -1,4 +1,4 @@
-# happy_service
+# happy_parameter
 ## 概要
 ２章のサンプルプログラム．パラメータ通信． 
 
