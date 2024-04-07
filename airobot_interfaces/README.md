@@ -24,6 +24,7 @@ Chapter2のパッケージは全部まとめてインストール・ビルドを
 
 ## 履歴
 - 2022-08-28: 初期版
+- 2024-04-07: Humbleで再作成。サービス定義ファイルの変更はないが、package.xmlの12行目のタグをbuild\_dependからbuildtool\_dependに変更。
 
 ## ライセンス
 Copyright (c) 2022, MASUTANI Yasuhiro All rights reserved. This project is licensed under the Apache License 2.0 license found in the LICENSE file in the root directory of this project.
