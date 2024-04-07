@@ -11,7 +11,7 @@ class ParameterClient(Node):
             self.get_logger().info('サービスは利用できません．待機中...')        
         self.request = GetParameters.Request()  # リクエストのインスタンス生成      
             
-    def send_request(self,names):  # リクエストの送信        
+    def send_request(self,names):   # リクエストの送信        
         self.request.names = names  # リクエストに値を代入
         self.future = self.client.call_async(self.request)  # サービスのリクエスト
     
@@ -19,18 +19,18 @@ class ParameterClient(Node):
 def main(args=None):
     rclpy.init(args=args)
     node = ParameterClient()
-    param_names = ['happy_param_int','happy_param_string']  # パラメータ名のリストを代入
-    node.send_request(param_names)
+    names = ['happy_param_int','happy_param_string']  # パラメータ名のリストを代入
+    node.send_request(names)
 
     while rclpy.ok():        
         rclpy.spin_once(node)
-        if node.future.done():  # サービスの処理が終了したら
+        if node.future.done():              # サービスの処理が終了したら
             try:
-                response = node.future.result()  # サービスの結果をレスポンスに代入
-            except Exception as e:  # エラーの場合
+                res = node.future.result()  # サービスの結果をレスポンスに代入
+            except Exception as e:          # エラーの場合
                 node.get_logger().info(f"サービスの呼び出しに失敗しました．{e}")
-            else:  # ログにパラメータ名と値を表示
-                node.get_logger().info(f"{param_names[0]}: {response.values[0].integer_value}")
-                node.get_logger().info(f"{param_names[1]}: {response.values[1].string_value}")
+            else:                           # ログにパラメータ名と値を表示
+                node.get_logger().info(f"{names[0]}: {res.values[0].integer_value}")
+                node.get_logger().info(f"{names[1]}: {res.values[1].string_value}")
                 break   
     rclpy.shutdown()
