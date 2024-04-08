@@ -1,11 +1,15 @@
 import rclpy
 from rclpy.node import Node
+from rclpy.parameter import Parameter
 
 class ParameterServer(Node): # ParameterServerクラス
     def __init__(self):
         super().__init__('happy_parameter_server_node')
-        self.declare_parameter('happy_param_int', 7)  # パラメータの宣言
+        # パラメータの宣言と初期値の設定
+        self.declare_parameter('happy_param_int',Parameter.Type.INTEGER)  
         self.declare_parameter('happy_param_string', 'Happy World')  # パラメータの宣言
+        # パラメータの値を新しい整数値に変更 
+        self.set_parameters([Parameter('happy_param_int', Parameter.Type.INTEGER, 7)]) 
         self.timer = self.create_timer(1, self.timer_callback)  # タイマの生成
     
     def timer_callback(self):
