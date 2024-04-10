@@ -1,4 +1,4 @@
-# 第２章　はじめてのROS2（Humble版）2024-03-27
+# 第２章　はじめてのROS2（Humble版）
 ## 概要
 ROS2とPythonで作って学ぶAIロボット入門（出村・萩原・升谷・タン著，講談社）第２章のサンプルプログラムと補足情報などを掲載しています．
 
@@ -51,7 +51,7 @@ Chapter2の全パッケージを以下のコマンドでインストールしま
 
 - Chapter2のリポジトリを入手
   ```
-  git clone https://github.com/AI-Robot-Book/chapter2
+  git clone https://github.com/AI-Robot-Book-Humble/chapter2
   ```
   
 - パッケージのビルド   
@@ -63,6 +63,4 @@ Chapter2の全パッケージを以下のコマンドでインストールしま
 
 
 ## バグ情報
-- Dockerコンテナのhappy_topicパッケージにバグがありました．happy_topic/happy_topic/happy_subscriber.pyの以下の行を次のように変更してください．なお，githubのコードは修正済みです．
-  - 7行目：　誤　class HappyPublisher(Node):　正　class HappySubscriber(Node):　　
-  - 20行目： 誤　node = HappyPublisher()      正　node = HappySubscriber():　
+- 今のところありません。
