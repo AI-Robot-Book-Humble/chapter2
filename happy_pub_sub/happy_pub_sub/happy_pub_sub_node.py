@@ -40,4 +40,5 @@ def main():
     except ExternalShutdownException:
         sys.exit(1)
     finally:
+        node.destroy_node()
         rclpy.try_shutdown()
