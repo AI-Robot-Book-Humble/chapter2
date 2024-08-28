@@ -7,8 +7,7 @@ class BringmeService(Node):  # ハッピーサービスクラス
     def __init__(self):  # コンストラクタ
         super().__init__('bringme_service')
         # サービスの生成（サービス型，サービス名, コールバック関数)
-        self.service = self.create_service(
-            StringCommand, 'command',self.callback)
+        self.service = self.create_service(StringCommand, 'command',self.callback)
         self.food = ['apple', 'banana', 'candy']   
 
     def callback(self, request, response):  # コールバック関数
@@ -29,5 +28,6 @@ def main():  # main関数
     except KeyboardInterrupt:
         print("Ctrl+CLが押されました．")
     finally:
+        node.destroy_node()
         rclpy.shutdown()
   
