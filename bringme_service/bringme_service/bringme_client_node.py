@@ -33,5 +33,6 @@ def main(args=None):
             else:                
                 node.get_logger().info( # 結果の表示
                     f"\nリクエスト:{node.request.command} -> レスポンス: {response.answer}")
-                break  
+                break
+    node.destroy_node()  
     rclpy.shutdown()
