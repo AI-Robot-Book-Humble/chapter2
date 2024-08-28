@@ -23,4 +23,5 @@ def main(args=None):  # main関数
     except KeyboardInterrupt:
         print('Ctrl+Cが押されました．')
     finally:
+        node.destroy_node()
         rclpy.try_shutdown()
