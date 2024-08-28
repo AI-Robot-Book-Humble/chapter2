@@ -60,4 +60,5 @@ def main():
     except KeyBoardInterrupt:
         pass
     finally:
+        happy_action_server.destroy_node()
         rclpy.shutdown()

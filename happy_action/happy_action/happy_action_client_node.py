@@ -42,3 +42,5 @@ def main(args=None):
     action_client.send_goal(5)
     action_client.send_goal(7)
     rclpy.spin(action_client)
+    action_client.destroy_node()
+    rclpy.shutdown()
