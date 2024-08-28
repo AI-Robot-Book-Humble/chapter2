@@ -21,7 +21,7 @@ setup(
     entry_points={
         'console_scripts': [
             'bringme_service_node = bringme_service.bringme_service_node:main',
-            'bringme_client_node = bringme_service.bringme_client_node:main',
+            'bringme_client_node  = bringme_service.bringme_client_node:main',
         ],
     },
 )
