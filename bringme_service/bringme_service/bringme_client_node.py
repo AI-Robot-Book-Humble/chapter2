@@ -12,7 +12,7 @@ class BringmeClient(Node):
             self.get_logger().info('サービスは利用できません．待機中...')        
         self.request = StringCommand.Request()  # リクエストのインスタンス生成
 
-    def send_request(self, order):  # リクエストの送信
+    def send_request(self, order):  # リクエストの送信メソッド
         self.request.command = order  # リクエストに値の代入   
         self.future = self.client.call_async(self.request) # サービスのリクエスト
 
@@ -24,10 +24,10 @@ def main(args=None):
     node.send_request(order)
 
     while rclpy.ok():
-        rclpy.spin_once(node)
-        if node.future.done():  # サービスの処理が終了したら
+        rclpy.spin_once(node)  # ノードを1回スピンして、コールバックを処理する
+        if node.future.done():  # サービスの処理が完了したかを確認
             try:
-                response = node.future.result()  # サービスの結果をレスポンスに代入                  
+                response = node.future.result()  # サービスの結果を取得                  
             except Exception as e:
                 node.get_logger().info(f"サービスのよび出しは失敗しました．{e}")
             else:                

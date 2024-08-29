@@ -5,6 +5,7 @@ from rclpy.node import Node
 from rclpy.action import ActionServer
 from happy_action_interfaces.action import Happy
 
+
 class HappyActionServer(Node):
     def __init__(self):
         super().__init__('happy_action_server')
@@ -30,7 +31,6 @@ class HappyActionServer(Node):
 
         no = goal_handle.request.action_no
         self.get_logger().info(f'ゴールを受信：[{no}番] {self.happy_actions[no]}')   
-
         
         while True:
             if  feedback_msg.remaining_time == 0:
@@ -41,15 +41,14 @@ class HappyActionServer(Node):
                 self.get_logger().info(f'フィードバック：残り{feedback_msg.remaining_time}秒')
                 goal_handle.publish_feedback(feedback_msg)
                 time.sleep(1)
-
             
         goal_handle.succeed()
         result = Happy.Result()
         if feedback_msg.remaining_time == 0:
-            result.result = 'とても幸せになりました．'
+            result.result = 'とてもハッピーになりました．'
         else:
-            result.result = '少し幸せになりました．'
-
+            result.result = '少しハッピーになりました．'
+        self.get_logger().info(f'結果の返信：{result.result}')  
         return result 
 
 def main():
