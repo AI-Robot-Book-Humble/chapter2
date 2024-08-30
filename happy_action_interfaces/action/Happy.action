@@ -1,5 +1,5 @@
 int32 action_no       # リクエスト
 ---
-string result         # レスポンス
+string happy_result   # レスポンス
 ---
 int32 remaining_time  # フィードバック
