@@ -44,11 +44,11 @@ class HappyActionServer(Node):
                 time.sleep(1)
             
         goal_handle.succeed()  # ゴールの成功を通知
-        result = Happy.Result()  # 結果メッセージのインスタンスを作成
+        result_msg = Happy.Result()  # 結果メッセージのインスタンスを作成
         if feedback_msg.remaining_time == 0:  # 結果メッセージの内容を設定
-            result.result = 'とてもハッピーになりました．'
+            result_msg.result = 'とてもハッピーになりました．'
         else:
-            result.result = '少しハッピーになりました．'
+            result_msg.result = '少しハッピーになりました．'
         self.get_logger().info(f'結果の返信：{result.result}')   # 結果をログに出力
         return result  # 結果の返却 
 
