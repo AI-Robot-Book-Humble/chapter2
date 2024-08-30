@@ -8,7 +8,7 @@ from happy_action_interfaces.action import Happy  # カスタムアクション�
 
 class HappyActionServer(Node):
     def __init__(self):
-        super().__init__('happy_action_server')
+        super().__init__('happy_action_server')  # ノード名をhappy_action_serverで初期化
         # アクションサーバの作成(アクション型, アクション名, コールバック関数)
         self._action_server = ActionServer(
             self, Happy, 'happy', self.execute_callback)
@@ -24,7 +24,7 @@ class HappyActionServer(Node):
             9:'人は皆違っていることを受け入れます．',
             10:'皆で協力して世界を良くします．'})
 
-    def execute_callback(self, goal_handle):  # ゴールを受け取ったときに呼び出されるコールバック関数
+    def execute_callback(self, goal_handle):  # ゴールを受信したときに呼び出されるコールバック
         self.get_logger().info('ゴールを処理中...')
 
         feedback_msg = Happy.Feedback()  # フィードバックメッセージのインスタンスを作成
