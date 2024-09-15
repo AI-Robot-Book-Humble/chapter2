@@ -4,12 +4,14 @@
 
 - サービス`StringCommand`
   - [StringCommand.srv](srv/StringCommand.srv)
+- アクション`StringCommand`
+  - [StringCommand.action](action/StringCommand.action)
 
 
 
 ## インストール
 Chapter2のパッケージは全部まとめてインストール・ビルドをします．
-- [第2章 インストール](https://github.com/AI-Robot-Book/chapter2)を参照してください．
+- [第2章 インストール](https://github.com/AI-Robot-Book-Humble/chapter2)を参照してください．
 
 ## 実行  
 - インタフェースの定義なので実行方法はありません．
@@ -23,11 +25,12 @@ Chapter2のパッケージは全部まとめてインストール・ビルドを
 升谷 保博  
 
 ## 履歴
-- 2022-08-28: 初期版
+- 2024-09-15: StringCommand.actionを追加
 - 2024-04-07: Humbleで再作成。サービス定義ファイルの変更はないが、package.xmlの12行目のタグをbuild\_dependからbuildtool\_dependに変更。
+- 2022-08-28: 初期版
 
 ## ライセンス
-Copyright (c) 2022, MASUTANI Yasuhiro All rights reserved. This project is licensed under the Apache License 2.0 license found in the LICENSE file in the root directory of this project.
+Copyright (c) 2022, 2024 MASUTANI Yasuhiro All rights reserved. This project is licensed under the Apache License 2.0 license found in the LICENSE file in the root directory of this project.
 
 ## 参考文献
 - 今のところありません．
