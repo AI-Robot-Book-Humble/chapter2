@@ -13,10 +13,11 @@ class HappyPublisher(Node):  # "Happy World"とパブリッシュ並びに表示
     def timer_callback(self):  # コールバック関数
         msg = String()
         if self.i > 0:
-            msg.data = f'ハッピーワールド{self.i}'
+            msg.data = f'ハッピーカウントダウン {self.i}'
+        elif self.i == 0:
+            msg.data = f'発射！'
         else:
-            msg.data = f"終わり"
-            self.destroy_timer(self.timer)
+            msg.data = f'経過時間 {-self.i}'
         self.pub.publish(msg)
         self.get_logger().info(f'パブリッシュ: {msg.data}')
         self.i -= 1
