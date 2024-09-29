@@ -35,7 +35,7 @@ class BringmeActionServer(Node):
 
     def execute_callback(self, goal_handle):
         feedback_msg = StringCommand.Feedback()
-        feedback_msg.progress = 0
+        feedback_msg.process = 0
 
         for i in range(5):
             if goal_handle.is_cancel_requested:
@@ -44,8 +44,8 @@ class BringmeActionServer(Node):
                 return StringCommand.Result()
 
             time.sleep(1)
-            feedback_msg.progress += 20
-            self.get_logger().info(f"フィードバック送信中: {feedback_msg.progress}%")
+            feedback_msg.process += 20
+            self.get_logger().info(f"フィードバック送信中: {feedback_msg.process}%")
             goal_handle.publish_feedback(feedback_msg)
 
         result = StringCommand.Result()
