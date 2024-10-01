@@ -20,8 +20,8 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'bringme_simple_action_server_node = bringme_action.bringme_simple_action_server_node:main',
-            'bringme_simple_action_client_node = bringme_action.bringme_simple_action_client_node:main',          
+            'bringme_action_server_node = bringme_action.bringme_action_server_node:main',
+            'bringme_action_client_node = bringme_action.bringme_action_client_node:main',          
         ],
     },
 )
