@@ -3,9 +3,9 @@ from rclpy.node import Node
 from rclpy.action import ActionClient
 from airobot_interfaces.action import StringCommand
 
-class BringmeSimpleActionClient(Node):
+class BringmeActionClient(Node):
     def __init__(self):  # コンストラクタ
-        super().__init__('bringme_simple_action_client')
+        super().__init__('bringme_action_client')
         # アクションクライアントを初期化
         self._action_client = ActionClient(self, StringCommand, 'command')
 
@@ -24,24 +24,24 @@ class BringmeSimpleActionClient(Node):
 
 def main(args=None):
     rclpy.init(args=args)
-    bringme_simple_action_client = BringmeSimpleActionClient()
+    bringme_action_client = BringmeActionClient()
     order = input('何を取ってきますか？')
 
-    future = bringme_simple_action_client.send_goal(order)  # ゴールを送信しFutureオブジェクトを取得    
-    rclpy.spin_until_future_complete(bringme_simple_action_client, future)  # ゴール送信が完了するまで待機    
+    future = bringme_action_client.send_goal(order)  # ゴールを送信しFutureオブジェクトを取得    
+    rclpy.spin_until_future_complete(bringme_action_client, future)  # ゴール送信が完了するまで待機    
     goal_handle = future.result()  # ゴールハンドルの取得
 
     if not goal_handle.accepted:
-        bringme_simple_action_client.get_logger().info('ゴールは拒否されました')
+        bringme_action_client.get_logger().info('ゴールは拒否されました')
     else:
-        bringme_simple_action_client.get_logger().info('ゴールが承認されました')        
+        bringme_action_client.get_logger().info('ゴールが承認されました')        
         result_future = goal_handle.get_result_async()  # 結果を非同期で取得
         # 結果が完了するまで待機
-        rclpy.spin_until_future_complete(bringme_simple_action_client, result_future)        
+        rclpy.spin_until_future_complete(bringme_action_client, result_future)        
         result = result_future.result().result  # 結果を取得        
-        bringme_simple_action_client.get_logger().info(f'ゴールの結果: {result.answer}')  # ノードが終了したら破棄
+        bringme_action_client.get_logger().info(f'ゴールの結果: {result.answer}')  # ノードが終了したら破棄
     
-    bringme_simple_action_client.destroy_node()
+    bringme_action_client.destroy_node()
     rclpy.shutdown()
 
 if __name__ == '__main__':

@@ -6,9 +6,9 @@ from rclpy.action import ActionServer, GoalResponse
 from airobot_interfaces.action import StringCommand  # カスタムアクション定義のインポート
 
 
-class BringmeSimpleActionServer(Node):
+class BringmeActionServer(Node):
     def __init__(self):
-        super().__init__('bringme_simple_action_server')
+        super().__init__('bringme_action_server')
         self._action_server = ActionServer(
             self, StringCommand, 'command', 
             execute_callback=self.execute_callback            
@@ -41,7 +41,7 @@ class BringmeSimpleActionServer(Node):
 
 def main(args=None):
     rclpy.init(args=args)
-    bringme_simple_action_server = BringmeSimpleActionServer()
-    rclpy.spin(bringme_simple_action_server)
-    bringme_simple_action_server.destroy_node()
+    bringme_action_server = BringmeActionServer()
+    rclpy.spin(bringme_action_server)
+    bringme_action_server.destroy_node()
     rclpy.shutdown()
