@@ -17,7 +17,7 @@ class BringmeService(Node):  # ハッピーサービスクラス
                 response.answer = f'はい，{item}です．'
         else:
                 response.answer = f'{item}を見つけることができませんでした．'
-        self.get_logger().info(f'レスポンス: {result.answer}')
+        self.get_logger().info(f'レスポンス: {response.answer}')
         return response
 
 
