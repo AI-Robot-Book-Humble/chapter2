@@ -27,8 +27,9 @@ def main():
     bringme_action_client = BringmeActionClient()
     order = input('何を取ってきますか？')
 
-    future = bringme_action_client.send_goal(order)  # ゴールを送信しFutureオブジェクトを取得    
-    rclpy.spin_until_future_complete(bringme_action_client, future)  # ゴール送信が完了するまで待機    
+    future = bringme_action_client.send_goal(order)  # ゴールを送信しFutureオブジェクトを取得
+    # ゴール送信が完了するまで待機
+    rclpy.spin_until_future_complete(bringme_action_client, future)      
     goal_handle = future.result()  # ゴールハンドルの取得
 
     if not goal_handle.accepted:
