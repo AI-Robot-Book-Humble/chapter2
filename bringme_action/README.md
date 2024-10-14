@@ -21,9 +21,24 @@ ros2 run bringme_action bringme_action_client_node
 何をとってきますか：
 ```
 と聞かれるので，取ってきて欲しい英単語を入力する．  
-'apple', 'banana', 'candy'を入力すると **"はい，〇〇です．”** とゴールの結果が返る，  
-それ以外は **"〇〇を見つけることができませんでした．”** とゴールの結果が返る．
+'apple', 'banana', 'candy'のいずれかを入力すると以下のように表示されます．
+[INFO] [1728888853.238853119] [bringme_action_client]: ゴールが承認されました
+[INFO] [1728888857.243842144] [bringme_action_client]: フィードバック受信中: 残り5[s]
+[INFO] [1728888858.245358757] [bringme_action_client]: フィードバック受信中: 残り4[s]
+[INFO] [1728888859.247032373] [bringme_action_client]: フィードバック受信中: 残り3[s]
+[INFO] [1728888860.248677167] [bringme_action_client]: フィードバック受信中: 残り2[s]
+[INFO] [1728888861.250357551] [bringme_action_client]: フィードバック受信中: 残り1[s]
+[INFO] [1728888862.252739181] [bringme_action_client]: ゴールの結果: はい，〇〇 (apple/banana/candy) です．
 
+それ以外は，次のように表示されます．
+[INFO] [1728889050.299714176] [bringme_action_client]: ゴールが承認されました
+[INFO] [1728889050.300428836] [bringme_action_client]: フィードバック受信中: 残り6[s]
+[INFO] [1728889051.292081616] [bringme_action_client]: フィードバック受信中: 残り5[s]
+[INFO] [1728889052.293734543] [bringme_action_client]: フィードバック受信中: 残り4[s]
+[INFO] [1728889053.295324400] [bringme_action_client]: フィードバック受信中: 残り3[s]
+[INFO] [1728889054.296944174] [bringme_action_client]: フィードバック受信中: 残り2[s]
+[INFO] [1728889055.298635793] [bringme_action_client]: フィードバック受信中: 残り1[s]
+[INFO] [1728889056.300734920] [bringme_action_client]: ゴールの結果: orangeを見つけることができませんでした．
 
 ## ヘルプ
 - 今のところありません．
