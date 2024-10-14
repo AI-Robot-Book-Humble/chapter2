@@ -1,7 +1,7 @@
-# bringme_service:  
+# bringme_action:  
 ## 概要
 ２章のサンプルプログラム  
-airobot_interfacesを使ったサンプルパッケージ
+airobot_interfacesを使ったアクション通信のサンプルパッケージ
 
 
 ## インストール
@@ -13,16 +13,16 @@ Chapter2のパッケージは全部まとめてインストール・ビルドを
 - 端末を２つに分割する．
 - 1番目の端末で次のコマンドを実行する．  
 ```
-ros2 run bringme_service bringme_service_node  
+ros2 run bringme_action bringme_action_server_node  
 ```
 - 2番目の端末で次のコマンドを実行する．
 ```
-ros2 run bringme_service bringme_client_node
+ros2 run bringme_action bringme_action_client_node
 何をとってきますか：
 ```
 と聞かれるので，取ってきて欲しい英単語を入力する．  
-'apple', 'banana', 'candy'を入力すると **"はい，これです．”** とレスポンスが返る，  
-それ以外は **"見つけることができませんでした．”** とレスポンスが返る．
+'apple', 'banana', 'candy'を入力すると **"はい，〇〇です．”** とゴールの結果が返る，  
+それ以外は **"〇〇を見つけることができませんでした．”** とゴールの結果が返る．
 
 
 ## ヘルプ
@@ -34,11 +34,11 @@ ros2 run bringme_service bringme_client_node
 
 
 ## 履歴
-- 2022-08-29: 初期版
+- 2024-10-14: 初期版
 
 
 ## ライセンス
-Copyright (c) 2022, Kosei Demura All rights reserved. This project is licensed under the Apache-2.0 license found in the LICENSE file in the root directory of this project.
+Copyright (c) 2024, Kosei Demura All rights reserved. This project is licensed under the Apache-2.0 license found in the LICENSE file in the root directory of this project.
 
 
 ## 参考文献
