@@ -22,8 +22,8 @@ class BringmeActionClient(Node):
         self.get_logger().info(f'フィードバック受信中: 残り{feedback_msg.feedback.process}[s]')
 
 
-def main(args=None):
-    rclpy.init(args=args)
+def main():
+    rclpy.init()
     bringme_action_client = BringmeActionClient()
     order = input('何を取ってきますか？')
 
@@ -43,6 +43,3 @@ def main(args=None):
     
     bringme_action_client.destroy_node()
     rclpy.shutdown()
-
-if __name__ == '__main__':
-    main()
