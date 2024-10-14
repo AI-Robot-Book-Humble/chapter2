@@ -29,10 +29,10 @@ def main():
             try:
                 response = bringme_client.future.result()  # サービスの結果を取得                  
             except Exception as e:
-                bringme_client.get_logger().info(f"サービスのよび出しは失敗しました．{e}")
+                bringme_client.get_logger().info(f'サービスのよび出しは失敗しました．{e}')
             else:                
                 bringme_client.get_logger().info( # 結果の表示
-                    f"\nリクエスト:{bringme_client.request.command} -> レスポンス: {response.answer}")
+                    f'\nリクエスト:{bringme_client.request.command} -> レスポンス: {response.answer}')
                 break
     bringme_client.destroy_node()  
     rclpy.shutdown()
