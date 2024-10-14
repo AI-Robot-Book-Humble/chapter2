@@ -19,20 +19,20 @@ class BringmeClient(Node):
 
 def main():
     rclpy.init()
-    node = BringmeClient()
+    bringme_client = BringmeClient()
     order = input('何を取ってきますか：')
-    node.send_request(order)
+    bringme_client.send_request(order)
 
     while rclpy.ok():
-        rclpy.spin_once(node)  # ノードを1回スピンして、コールバックを処理する
-        if node.future.done():  # サービスの処理が完了したかを確認
+        rclpy.spin_once(bringme_client)  # ノードを1回スピンして、コールバックを処理する
+        if bringme_client.future.done():  # サービスの処理が完了したかを確認
             try:
-                response = node.future.result()  # サービスの結果を取得                  
+                response = bringme_client.future.result()  # サービスの結果を取得                  
             except Exception as e:
-                node.get_logger().info(f"サービスのよび出しは失敗しました．{e}")
+                bringme_client.get_logger().info(f"サービスのよび出しは失敗しました．{e}")
             else:                
-                node.get_logger().info( # 結果の表示
-                    f"\nリクエスト:{node.request.command} -> レスポンス: {response.answer}")
+                bringme_client.get_logger().info( # 結果の表示
+                    f"\nリクエスト:{bringme_client.request.command} -> レスポンス: {response.answer}")
                 break
-    node.destroy_node()  
+    bringme_client.destroy_node()  
     rclpy.shutdown()
