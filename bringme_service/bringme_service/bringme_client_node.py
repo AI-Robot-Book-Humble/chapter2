@@ -17,8 +17,8 @@ class BringmeClient(Node):
         self.future = self.client.call_async(self.request) # サービスのリクエスト
 
 
-def main(args=None):
-    rclpy.init(args=args)
+def main():
+    rclpy.init()
     node = BringmeClient()
     order = input('何を取ってきますか：')
     node.send_request(order)
