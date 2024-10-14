@@ -26,8 +26,9 @@ def main():
     rclpy.init()
     bringme_action_client = BringmeActionClient()
     order = input('何を取ってきますか？')
-
-    future = bringme_action_client.send_goal(order)  # ゴールを送信しFutureオブジェクトを取得
+    
+    # ゴールを送信しFutureオブジェクトを取得
+    future = bringme_action_client.send_goal(order)  
     # ゴール送信が完了するまで待機
     rclpy.spin_until_future_complete(bringme_action_client, future)      
     goal_handle = future.result()  # ゴールハンドルの取得
