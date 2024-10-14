@@ -7,7 +7,7 @@ ROS2とPythonで作って学ぶAIロボット入門（出村・萩原・升谷�
 - **[bringme_action](bringme_action)**: airobot_interfacesを使ったアクション通信のサンプルパッケージ （プログラムリスト2.20, 2.21, 2.22）
 - **[bringme_service](bringme_service)**: airobot_interfacesを使ったサービス通信のサンプルパッケージ （プログラムリスト2.14, 2.15, 2.16） 
 - **[happy](happy)**: はじめてのROS2パッケージ （プログラムリスト2.4, 2.5, 2.6, 2.7, 2.8）
-- **[happy_action](happy_action)**: action用のサンプルパッケージ 
+- **[happy_action](happy_action)**: action用のサンプルパッケージ （プログラムリスト2.20, 2.21, 2.22）
 - **[happy_action_interfaces](happy_action_interfaces)**: happy_action用のインタフェース定義 
 - **[happy_interfaces](happy_interfaces)**: happy用のインタフェース定義 
 - **[happy_pub_sub](happy_pub_sub)**: topic用のサンプルパッケージ（プログラムリスト2.13） 
@@ -36,16 +36,16 @@ ROS2とPythonで作って学ぶAIロボット入門（出村・萩原・升谷�
 - プログラムリスト2.17 [CMakeLists.txt](https://github.com/AI-Robot-Book-Humble/chapter2/blob/master/airobot_interfaces/CMakeLists.txt)
 - プログラムリスト2.18 [package.xml](https://github.com/AI-Robot-Book-Humble/chapter2/blob/master/airobot_interfaces/package.xml)
 - プログラムリスト2.19 [setup.py](https://github.com/AI-Robot-Book-Humble/chapter2/blob/master/bringme_service/setup.py)
-- プログラムリスト2.20 [StringCommand.srv](https://github.com/AI-Robot-Book-Humble/chapter2/blob/master/airobot_interfaces/srv/StringCommand.action)
+- プログラムリスト2.20 [StringCommand.action](https://github.com/AI-Robot-Book-Humble/chapter2/blob/master/airobot_interfaces/action/StringCommand.action)
 - プログラムリスト2.21 [bringme_action_server_node.py](https://github.com/AI-Robot-Book-Humble/chapter2/blob/master/bringme_action/bringme_action/bringme_action_server_node.py)
 - プログラムリスト2.22 [bringme_action_client_node.py](https://github.com/AI-Robot-Book-Humble/chapter2/blob/master/bringme_action/bringme_action/bringme_action_client_node.py)
 
 ## 実演動画一覧 (後で変更する） 
-- [チャレンジ2.4 (p.50)] (https://youtu.be/Vmu8w7EW-7U)  
-- [チャレンジ2.5 (p.53)] (https://youtu.be/hsBdCBVgmQY)  
-- [チャレンジ2.6 (p.53)] (https://youtu.be/p6whfw_g6TU)  
-- [チャレンジ2.7 (p.56)] (https://youtu.be/sV9rLgRLK1Q)  
-- [チャレンジ2.8 (p.59)] (https://youtu.be/Y4eyENWhwH0)  
+- [チャレンジ2.4 (p.48)] (https://youtu.be/Vmu8w7EW-7U)  
+- [チャレンジ2.5 (p.50)] (https://youtu.be/hsBdCBVgmQY)  
+- [チャレンジ2.6 (p.54)] (https://youtu.be/p6whfw_g6TU)  
+- [チャレンジ2.7 (p.57)] (https://youtu.be/sV9rLgRLK1Q)  
+- [チャレンジ2.8 (p.60)] (https://youtu.be/Y4eyENWhwH0)  
 
 
 ## インストール
