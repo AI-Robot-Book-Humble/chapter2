@@ -15,7 +15,7 @@ class BringmeService(Node):  # ハッピーサービスクラス
         item = request.command
         if item in self.food:
                 response.answer = f'はい，{item}です．'
-        else
+        else:
                 response.answer = f'{item}を見つけることができませんでした．'
         return response
 
