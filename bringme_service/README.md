@@ -30,15 +30,15 @@ ros2 run bringme_service bringme_client_node
 　
  
 ## 著者
-出村 公成
+出村 公成, 升谷 保博
 
 
 ## 履歴
-- 2022-08-29: 初期版
+- 2024-10-15: 初期版
 
 
 ## ライセンス
-Copyright (c) 2022, Kosei Demura All rights reserved. This project is licensed under the Apache-2.0 license found in the LICENSE file in the root directory of this project.
+Copyright (c) 2024, Kosei Demura and Yasuhiro Masutani All rights reserved. This project is licensed under the Apache-2.0 license found in the LICENSE file in the root directory of this project.
 
 
 ## 参考文献
