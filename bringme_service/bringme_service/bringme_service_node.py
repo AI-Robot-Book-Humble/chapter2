@@ -12,22 +12,20 @@ class BringmeService(Node):  # ハッピーサービスクラス
 
     def callback(self, request, response):  # コールバック関数
         time.sleep(5)
-        for item in self.food:
-            if item in request.command:
-                response.answer = 'はい，これです．'
-                return response
-        response.answer = '見つけることができませんでした．'
+        item = request.command
+        if item in self.food:
+                response.answer = f'はい，{item}です．'
+        else
+                response.answer = f'{item}を見つけることができませんでした．'
         return response
 
 
 def main():  # main関数
     rclpy.init()
-    node = BringmeService()
+    bringme_service = BringmeService()
     try:
-        rclpy.spin(node)
+        rclpy.spin(bringme_service)
     except KeyboardInterrupt:
-        print("Ctrl+CLが押されました．")
-    finally:
-        node.destroy_node()
-        rclpy.shutdown()
-  
+        pass
+    rclpy.try_shutdown()
+    print('サーバ終了')
