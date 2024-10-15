@@ -44,7 +44,7 @@ ros2 run bringme_action bringme_action_client_node
 　
  
 ## 著者
-出村 公成, 升谷 保博
+升谷 保博，出村 公成
 
 
 ## 履歴
@@ -52,7 +52,7 @@ ros2 run bringme_action bringme_action_client_node
 
 
 ## ライセンス
-Copyright (c) 2024, Kosei Demura and Yasuhiro Masutani All rights reserved. This project is licensed under the Apache-2.0 license found in the LICENSE file in the root directory of this project.
+Copyright (c) 2024,Yasuhiro Masutani and Kosei Demura All rights reserved. This project is licensed under the Apache-2.0 license found in the LICENSE file in the root directory of this project.
 
 
 ## 参考文献
