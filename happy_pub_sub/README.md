@@ -29,7 +29,8 @@ ros2 run happy_pub_sub happy_pub_sub_node
 
 
 ## ライセンス
-Copyright (c) 2022, Kosei Demura All rights reserved. This project is licensed under the Apache License 2.0 license found in the LICENSE file in the root directory of this project.
+Copyright (c) 2022, 2023, 2024, Kosei Demura  
+All rights reserved. This project is licensed under the Apache License 2.0 license found in the LICENSE file in the root directory of this project.
 
 
 ## 参考文献
