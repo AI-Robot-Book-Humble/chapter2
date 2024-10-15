@@ -38,7 +38,8 @@ ros2 run happy_parameter happy_parameter_client_node
 
 
 ## ライセンス
-Copyright (c) 2024, Kosei Demura All rights reserved. This project is licensed under the Apache License 2.0 license found in the LICENSE file in the root directory of this project.
+Copyright (c) 2024, Kosei Demura  
+All rights reserved. This project is licensed under the Apache License 2.0 license found in the LICENSE file in the root directory of this project.
 
 
 ## 参考文献
