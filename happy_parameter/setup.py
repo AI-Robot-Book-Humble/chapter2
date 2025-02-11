@@ -4,7 +4,7 @@ package_name = 'happy_parameter'
 
 setup(
     name=package_name,
-    version='0.0.0',
+    version='2.0.0',
     packages=find_packages(exclude=['test']),
     data_files=[
         ('share/ament_index/resource_index/packages',
@@ -14,9 +14,9 @@ setup(
     install_requires=['setuptools'],
     zip_safe=True,
     maintainer='ubuntu',
-    maintainer_email='demura@neptune.kanazawa-it.ac.jp',
-    description='TODO: Package description',
-    license='TODO: License declaration',
+    maintainer_email='ai-robot-book@googlegroups.com',
+    description='A happy parameter package',
+    license='Apache License 2.0',
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
