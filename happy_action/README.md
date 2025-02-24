@@ -32,6 +32,7 @@ ros2 run happy_action happy_action_client_node
 
 
 ## 履歴
+- 2025-02-12: 改定第２版
 - 2022-08-29: 初期版
 
 
