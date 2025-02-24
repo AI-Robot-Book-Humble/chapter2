@@ -40,12 +40,7 @@ ROS 2とPythonで作って学ぶAIロボット入門 改訂第2版（出村・�
 - プログラムリスト2.21 [bringme_action_server_node.py](https://github.com/AI-Robot-Book-Humble/chapter2/blob/master/bringme_action/bringme_action/bringme_action_server_node.py)
 - プログラムリスト2.22 [bringme_action_client_node.py](https://github.com/AI-Robot-Book-Humble/chapter2/blob/master/bringme_action/bringme_action/bringme_action_client_node.py)
 
-## 実演動画一覧 (後で変更する） 
-- [チャレンジ2.4 (p.48)] (https://youtu.be/Vmu8w7EW-7U)  
-- [チャレンジ2.5 (p.50)] (https://youtu.be/hsBdCBVgmQY)  
-- [チャレンジ2.6 (p.54)] (https://youtu.be/p6whfw_g6TU)  
-- [チャレンジ2.7 (p.57)] (https://youtu.be/sV9rLgRLK1Q)  
-- [チャレンジ2.8 (p.60)] (https://youtu.be/Y4eyENWhwH0)  
+
 
 
 ## インストール
